@@ -72,6 +72,10 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	else {
 		strncpy(annotator_id,"mdl_YOLO",8);
 	}
+	//we add the thresh il the annotator_id
+	sprintf(annotator_id,"%s_th%f",annotator_id,thresh);
+
+
 	//we create a JSON annotation for the image countaining the bounding boxes annotations, the image id and the annotator id
 	char *annotation = calloc(10000,sizeof(char));
 	sprintf(annotation,"{\"photo_id\":\"%s\",\"annotator_id\":\"%s\",\"bounding_boxes\":%s}",im.id,annotator_id,bd_boxes);
