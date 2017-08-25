@@ -72,7 +72,7 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	else {
 		strncpy(annotator_id,"mdl_YOLO",8);
 	}
-	//we add the thresh il the annotator_id
+	//we add the thresh in the annotator_id
 	sprintf(annotator_id,"%s_th%f",annotator_id,thresh);
 
 
