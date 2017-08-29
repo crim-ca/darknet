@@ -29,8 +29,10 @@ __global__ void im2col_gpu_kernel(const int n, const float* data_im,
         data_col_ptr += (channel_out * height_col + h_out) * width_col + w_out;
         const float* data_im_ptr = data_im;
         data_im_ptr += (channel_in * height + h_in) * width + w_in;
-        for (int i = 0; i < ksize; ++i) {
-            for (int j = 0; j < ksize; ++j) {
+        int i;
+        for ( i = 0; i < ksize; ++i) {
+            int j ;
+            for (j = 0; j < ksize; ++j) {
                 int h = h_in + i;
                 int w = w_in + j;
 

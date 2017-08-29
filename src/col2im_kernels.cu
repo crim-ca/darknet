@@ -32,8 +32,10 @@ __global__ void col2im_gpu_kernel(const int n, const float* data_col,
             (c * ksize * ksize + h * ksize + w) * height_col * width_col;
         int coeff_h_col = (1 - stride * ksize * height_col) * width_col;
         int coeff_w_col = (1 - stride * height_col * width_col);
-        for (int h_col = h_col_start; h_col < h_col_end; ++h_col) {
-            for (int w_col = w_col_start; w_col < w_col_end; ++w_col) {
+        int h_col;
+        for (h_col = h_col_start; h_col < h_col_end; ++h_col) {
+            int w_col;
+            for (w_col = w_col_start; w_col < w_col_end; ++w_col) {
                 val += data_col[offset + h_col * coeff_h_col + w_col * coeff_w_col];
             }
         }
@@ -55,4 +57,3 @@ void col2im_gpu(float *data_col,
                 stride, height_col,
                 width_col, data_im);
 }
-

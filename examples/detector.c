@@ -712,7 +712,8 @@ void run_detector(int argc, char **argv)
 
     if (argv[6]!=NULL){
       filenames = calloc(argc-5,sizeof(char *));
-      for (int i=6;i<argc;i++){
+      int i;
+      for (i=6;i<argc;i++){
         if ((i==argc) || (argv[i]==NULL)){
           //we add a NULL as the end can be found
           filenames[i-6]=NULL;

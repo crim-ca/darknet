@@ -444,7 +444,8 @@ int main(int argc, char **argv)
         char **filenames;
         if (argv[4]!=NULL){
           filenames = calloc(argc-3,sizeof(char *));
-          for (int i=4;i<argc+1;i++){
+          int i;
+          for (i=4;i<argc+1;i++){
             if ((i==argc) || (argv[i]==NULL)){
               //we add a NULL as the end can be found
               filenames[i-4]=NULL;
