@@ -1426,7 +1426,8 @@ void get_image_id(char * filename, char * id)
 	}
   //when the last "/" is find, i is its position in the path
   //then we copy what is after the last "/" into the file id
-	for(int j=0; i+j<size; j++){
+  int j;
+	for(j=0; i+j<size; j++){
 		id[j]=filename[i+j];
 	}
 }

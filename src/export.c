@@ -11,7 +11,8 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	char ** bounding_boxes=calloc(num,sizeof(char *));
 	int index = 0;
 
-	for(int i = 0; i < num; ++i){
+	int i;
+	for(i = 0; i < num; ++i){
 
 		int class = max_index(probs[i], classes);
 		float prob = probs[i][class];
@@ -47,7 +48,8 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	}
 	else{
 		sprintf(bd_boxes,"[%s",bounding_boxes[0]);
-		for(int i=1;i<index;i++){
+		int i;
+		for(i=1;i<index;i++){
 			sprintf(bd_boxes,"%s,%s",bd_boxes,bounding_boxes[i]);
 		}
 		sprintf(bd_boxes,"%s]",bd_boxes);
@@ -92,7 +94,8 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	fclose(json_file);
 
 	//Free section
-	for(int i=1;i<index;i++){
+	int i;
+	for(i=1;i<index;i++){
 		free(bounding_boxes[i]);
 	}
 	free(bounding_boxes);
