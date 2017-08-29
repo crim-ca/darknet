@@ -94,9 +94,9 @@ void export_annotation(image im, int num, float thresh, box *boxes, float **prob
 	fclose(json_file);
 
 	//Free section
-	int i;
-	for(i=1;i<index;i++){
-		free(bounding_boxes[i]);
+	int j;
+	for(j=1;j<index;j++){
+		free(bounding_boxes[j]);
 	}
 	free(bounding_boxes);
 	free(bd_boxes);
